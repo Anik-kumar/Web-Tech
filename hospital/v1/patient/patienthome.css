@@ -1,0 +1,19 @@
+body{
+	margin:0;
+	padding:0;
+	background-color: #546E7A;
+	color: #000;
+	height:100%;
+	width:100%;
+}
+
+table{
+	color: #000;
+}
+a{
+	margin: 5px;
+}
+
+.btn-default{
+	width: 200px;
+}

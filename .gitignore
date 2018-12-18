@@ -1,0 +1,8 @@
+hospital/v1/admin/vendors/
+hospital/**/v1/.idea/
+*.txt
+*.png
+*.sql
+*.jpg
+*.jpeg
+*.ttf

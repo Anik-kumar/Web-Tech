@@ -1,0 +1,79 @@
+span{
+	color: red;
+}
+
+body{
+	background-color: #09425A;
+}
+
+/*form{
+	color: white;
+	font-size: 25px;
+}*/
+table{
+	color:white;
+	font-size:20px;
+	font-family:serif;	
+	text-align:-webkit-center;	
+}
+h3{
+	color:white;
+	text-align:left;
+	font-size:25px;
+	text-decoration: underline;	
+}
+input[type=text]{
+	width:100%;
+	border: 2px solid #aaa;
+	padding:4px;
+
+}
+input[type=text]:focus{
+	border-color: dodgerblue;
+	box-shadow:0 0 8px 0 dodgerblue;
+
+}
+input[type=password]{
+	width:100%;
+	border: 2px solid #aaa;
+	padding:4px;
+}
+input[type=password]:focus{
+	border-color: dodgerblue;
+	box-shadow:0 0 8px 0 dodgerblue;
+
+}
+input[type=date]{
+	width:70%;
+	border: 2px solid #aaa;
+	padding:4px;
+}
+input[type=date]:focus{
+	border-color: dodgerblue;
+	box-shadow:0 0 8px 0 dodgerblue;
+
+}
+input[type=radio]{
+	margin: 0 8px 25px 18px;
+}
+input[type=radio]:first-child{
+	margin-left: 0 ;
+}
+input[type=radio]:focus{
+	border-color: dodgerblue;
+}
+select{
+	width:50%;
+	border: 2px solid #aaa;
+	padding:4px;
+}
+select:focus{
+	border-color: dodgerblue;
+}
+input[type=submit]{
+	width:100px;
+	height:30px;
+	border:2px solid white;
+	background:dodgerblue;
+	color:white;
+}

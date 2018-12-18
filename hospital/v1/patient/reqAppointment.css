@@ -1,0 +1,24 @@
+span{
+	color:red;
+}
+body{
+	margin:0;
+	padding:0;
+	background-color:rgba(4,29,49,.5);
+}
+table{
+	margin-top: 50px;
+	color: #000;
+	font-size:20px;
+    font-family:serif;
+}
+input[type="submit"]{
+	
+	width:80%;
+	height:25px;
+	background:steelblue;
+	color:18px;
+	font-size:18px;
+	
+	
+}
