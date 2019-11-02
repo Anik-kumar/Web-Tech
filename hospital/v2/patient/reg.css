@@ -1,0 +1,18 @@
+span{
+	color:red;
+}
+body{
+	background:url(sunny.jpg);
+	background-size:100% 700px;
+	
+}
+table{
+ font-size:20px;
+ font-family:serif;
+}
+input[type=submit]{
+	background:steelblue;
+	color:white;
+}
+
+
