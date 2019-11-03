@@ -8,12 +8,19 @@
 		$query = "SELECT * FROM patients";
 		$result = mysqli_query($conn, $query);
 
+
+		if($_REQUEST['delStatus']=="done"){
+		    echo "<script>alert('Patient Profile Deleted Successfully.')</script>";
+        }elseif($_REQUEST['delStatus']=="notdone"){
+            echo "<script>alert('Patient Profile Delete Unsuccessful.')</script>";
+        }
+
 	}
 
  ?>
 
 
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
@@ -25,45 +32,61 @@
 <body>
 <div class="container" id="center">
     <div id="back">
-        <h3 class="gap">Patient List</h3>
-        <table class="table table-responsive">
-            <tr id="header">
-                <td>ID</td>
-                <td>First Name</td>
-                <td>Last Name</td>
-                <td>Email</td>
-                <td>Date Of Birth</td>
-                <td>Age</td>
-                <td>Gender</td>
-                <td>User Type</td>
-                <td>Contact No</td>
-            </tr>
+        <h3 class="gap">Patient List</h3>-->
 
-            <?php while($row = mysqli_fetch_assoc($result)){ ?>
+<div id="upperDiv-showAdmin">
 
-                <tr>
-                    <td> <?php echo $row['patient_id']; ?> </td>
-                    <td> <?php echo $row['first_name']; ?> </td>
-                    <td> <?php echo $row['last_name']; ?> </td>
-                    <td> <?php echo $row['email']; ?> </td>
-                    <td> <?php echo $row['date_of_birth']; ?> </td>
-                    <td> <?php echo $row['age']; ?> </td>
-                    <td> <?php echo $row['gender']; ?> </td>
-                    <td> <?php echo $row['user_type']; ?> </td>
-                    <td> <?php echo $row['contact_no']; ?> </td>
-                </tr>
+    <h2 class="blue-backgnd">Patients </h2>
 
-            <?php	} ?>
+</div>
+
+<div class="mainDiv-showAdmin">
+    <table class="table table-condensed table-striped" id="showAdmins-table" style="background-color: #FEFEFE">
+        <tr id="header">
+            <th>Patient ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Gender</th>
+            <th>Contact No</th>
+            <th>Options</th>
+        </tr>
+
+        <?php while($row = mysqli_fetch_assoc($result)){ ?>
+
             <tr>
-                <td colspan="10" align="right">
-                    <a href="admin.php" class="btn btn-success">Go Home</a>
+                <td> <?php echo $row['patient_id']; ?> </td>
+                <td> <?php echo $row['first_name'] ." ". $row['last_name']; ?> </td>
+                <td> <?php echo $row['email']; ?> </td>
+                <td> <?php echo $row['gender']; ?> </td>
+                <td> <?php echo $row['contact_no']; ?> </td>
+                <td>
+                    <a class="ui compact labeled icon button" href="router.php?flag=true&code=viewPatProfile&id=<?= $row['patient_id']; ?>">
+                        <i class="address book outline icon"></i>View
+                    </a>
+                    <a class="ui compact labeled icon button" href="router.php?flag=true&code=updatePatInfo&id=<?= $row['patient_id']; ?>">
+                        <i class="edit icon"></i>Update
+                    </a>
+                    <a class="ui compact labeled icon button" id="deleteBtn">
+                        <i class="trash alternate outline icon"></i>Delete
+                    </a>
                 </td>
             </tr>
-        </table>
-    </div>
+
+        <?php	} ?>
+        <tr>
+            <td colspan="10" align="right">
+                <a href="admin.php" class="btn btn-success">Go Home</a>
+            </td>
+        </tr>
+    </table>
 </div>
 
 
-	
-</body>
-</html>
+<script type="text/javascript">
+    $("#deleteBtn").click(function (e) {
+        if(window.confirm("Are You Sure?")){
+            e.preventDefault();
+            window.location.href("deleteEmpValidation.php?patId=<?= $row['patient_id']; ?>&user=patient");
+        }
+    });
+</script>

@@ -10,7 +10,7 @@ error_reporting(E_ALL & ~E_NOTICE);
 		$userEmail = $_SESSION['email'];
 		$userType = $_SESSION['user_type'];
 
-		if($userType == 'patient'){
+		if($userType == 'Patient'){
 			$query = "SELECT * FROM patients WHERE email='".$userEmail."'";
 		}else{
 			$query = "SELECT * FROM employee e INNER JOIN department d ON e.dep_id=d.dept_id WHERE email='".$userEmail."'";
@@ -27,8 +27,8 @@ error_reporting(E_ALL & ~E_NOTICE);
 <html lang="en">
 <head>
 	<title>Admin Profile</title>
-    <link rel="stylesheet" type="text/css" href="vendors/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="resources/css/viewProfile.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/admin/viewProfile.css">
 </head>
 <body>
     <div class="container" id="center">
@@ -94,11 +94,11 @@ error_reporting(E_ALL & ~E_NOTICE);
             <div>
                 <a href="changePassword.php" class="btn btn-success btnLeft">Change Password</a>
                 <?php if($row['user_type'] == "Patient"){ ?>
-                    <a href="patient.php" class="btn btn-primary btnLeft">Go Home</a>
+                    <a href="patient/patienthome.php" class="btn btn-primary btnLeft">Go Home</a>
                 <?php	}else if($row['user_type'] == "Doctor"){ ?>
-                    <a href="doctor.php" class="btn btn-primary btnLeft">Go Home</a>
+                    <a href="doctor/doctorHome.php" class="btn btn-primary btnLeft">Go Home</a>
                 <?php	}else if($row['user_type'] == "Admin"){ ?>
-                    <a href="admin.php" class="btn btn-primary btnLeft">Go Home</a>
+                    <a href="admin/admin.php" class="btn btn-primary btnLeft">Go Home</a>
                 <?php	}else{ echo "Can not Find The Home of User <br><br>"; } ?>
             </div>
         </div>

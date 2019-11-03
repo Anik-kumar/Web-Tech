@@ -1,7 +1,7 @@
 <?php 
 	require_once 'db.php';
 	session_start();
-    if(isset($_SESSION['id'])){
+    if($_SESSION['usertype']=="Admin" || $_SESSION['usertype']=="Doctor"){
         $conn = getConnection();
         $query = "SELECT ap.*, p.first_name, p.last_name, p.email, p.user_type, p.patient_id FROM patient_application ap INNER JOIN patients p ON ap.patient_id=p.patient_id";
         $result = getResults($query);
@@ -17,6 +17,8 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>List Of Patient Application</title>
     <link rel="stylesheet" type="text/css" href="vendors/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="resources/css/showPatientApplication.css">
@@ -50,7 +52,11 @@
                 <?php	} ?>
 
             </table>
-            <a href="admin.php" class="btn btn-default">Home</a>
+            <?php if ($_SESSION['usertype']=="Admin"){ ?>
+                <a href="admin.php" class="btn btn-default">Home</a>
+            <?php }else{ ?>
+                <a href="../doctor/doctorHome.php" class="btn btn-default">Home</a>
+            <?php } ?>
         </div>
     </div>
 

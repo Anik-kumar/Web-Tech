@@ -13,56 +13,63 @@
 <head>
 	
 	<title>Update Profile</title>
-	<script type="text/javascript" src="script/updateProfile.js"></script>
-	<link rel="stylesheet" type="text/css" href="css/updateProfile.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../assets/css/doctor/updateProfile.css">
+    <script type="text/javascript" src="../assets/js/doctor/updateProfile.js"></script>
 </head>
 <body>
-	<form method="post" action="php/updateProfileCheck.php" >
-	
-	<table  align="center">
-	
-		<th colspan="2">Update Profile Here</th><br><br>
-		<tr>
-			<td>First Name</td>
-			<td>
-				<input type="text" name="firstname" id="fname" value="<?=$data['first_name']?>">
-				<span  id="first"></span>
-			</td>
-		</tr>
-		<tr>
-			<td>Last Name</td>
-			<td>
-				<input type="text" name="lastname"  id="lname" value="<?=$data['last_name']?>">
-				<span  id="last"></span>
-			</td>
-		</tr>
-		<tr>
-			<td>Email</td>
-			<td>
-				<input type="text" name="email"  id="email" value="<?=$data['email']?>">
-				<span  id="mail"></span>
-			</td>
-		</tr>
-		<tr>
-			<td>Contact No</td>
-			<td>
-				<input type="text" name="contact"  id="contact" value="<?=$data['contact_no']?>">
-				<span  id="mail"></span>
-			</td>
-		</tr>
 
-		<tr>
-			<td align="left">
-				<input type="submit" name="submit" value="update" onclick="return validate()">
-			</td>
-		
-			<td align="right">
-				<a href="doctorHome.php">Go Home</a>
-			</td>
-		</tr>
-	</table>
-	</form>
+    <div class="container" id="center">
+        <div id="back">
+            <div>
+                <form method="post" action="php/updateProfileCheck.php" >
+                    <h3>Update Profile Here</h3>
+                    <div class="form-horizontal gap">
+                        <div class="form-group">
+                            <label for="fname" class="col-lg-2">First Name</label>
+                            <div class="col-lg-3">
+                                <input type="text" name="firstname" id="fname" class="form-control" value="<?=$data['first_name']?>">
+                                <span  id="firstErr"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="lname" class="col-lg-2">Last Name</label>
+                            <div class="col-lg-3">
+                                <input type="text" name="lastname"  id="lname" class="form-control" value="<?=$data['last_name']?>">
+                                <span  id="lastErr"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="col-lg-2">Email</label>
+                            <div class="col-lg-3">
+                                <input type="text" name="email"  id="email" class="form-control" value="<?=$data['email']?>">
+                                <span id="emailErr"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="dob" class="col-lg-2">Date Of Birth</label>
+                            <div class="col-lg-3">
+                                <input type="date" name="dob"  id="dob" class="form-control" >
+                                <span id="dobErr"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact" class="col-lg-2">Contact No</label>
+                            <div class="col-lg-3">
+                                <input type="text" name="contact" id="contact" class="form-control" value="<?=$data['contact_no']?>">
+                                <span id="contactErr"></span>
+                            </div>
+                        </div>
 
+                        <div class="form-group">
+                            <input type="button" name="submit" value="U P D A T E" class="btn btn-success" onclick="return validate()">
+                            <a href="doctorHome.php" class="btn btn-danger">HOME</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
 
+        </div>
+    </div>
 </body>
 </html>

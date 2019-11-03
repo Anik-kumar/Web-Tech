@@ -11,14 +11,16 @@ error_reporting(E_ALL & ~E_NOTICE);
             $id="";
             $roomType = $_REQUEST['roomType'];
             $location = $_REQUEST['location'];
-
-            $query2 = "INSERT INTO room VALUES ('".$id."', '".$roomType."', ".$location.")";
-            if(mysqli_query($conn, $query2)){
-                echo "<script type='text/javascript'> alert('Room Added Successfully')</script>";
-            }else{
+            if(empty($roomType) || empty($location)){
                 echo "<script type='text/javascript'> alert('Enter a New Room Number')</script>";
+            }else{
+                $query2 = "INSERT INTO room VALUES ('".$id."', '".$roomType."', ".$location.")";
+                if(mysqli_query($conn, $query2)){
+                    echo "<script type='text/javascript'> alert('Room Added Successfully')</script>";
+                }else{
+                    echo "<script type='text/javascript'> alert('Try Again. Room already exits')</script>";
+                }
             }
-
         }
     }else{
         header('location: ../login.php');

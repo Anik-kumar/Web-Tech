@@ -1,0 +1,125 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding:0;
+}
+@font-face {
+    font-family: "Unica";
+    src: url(../fonts/UnicaOne-Regular.ttf);
+}
+
+html,body{
+    height: auto;
+    font-family: 'lato-black','arial',sans-serif;
+}
+body{
+    padding-top: 70px;
+    background: #FF5733;
+    color: whitesmoke;
+}
+
+h1,h2{
+    font-family: "Unica";
+    text-transform: uppercase;
+}
+h1{
+    /*margin-left: 20px;*/
+    font-size: 45px;
+}
+
+form{
+    margin-top: 10px;
+    margin-left: 5px;
+    height: 50px;
+}
+
+/*combined*/
+
+#sidebar li{
+    margin-left: 3%;
+}
+
+.innerDiv a{
+    color: #000;
+    width: auto;
+    height: 70px;
+    display: block;
+    margin: 5px;
+    padding-top: 25px;
+    background-color: #c0392b;
+}
+
+/* Classes */
+.innerDiv .row{
+
+}
+
+.container-fluid{
+    width: 1000px;
+}
+.container{
+    width: 1050px;
+}
+
+.navbar{
+    width: 100%;
+}
+
+.innerDiv{
+    height: 30%;
+    border-color: black;
+
+}
+
+
+.navbar-brand {
+    padding: 0px;
+    width: 90%;
+}
+.navbar-brand>img {
+    height: 100%;
+    width: auto;
+}
+
+.gap{
+    margin-left: 15px;
+}
+
+
+/*ids*/
+#firstContainer{
+    width: 95%;
+}
+
+#back{
+    background: rgba(0,0,0,0.5);
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+#sidebar{
+    margin: 0px;
+    padding: 0px;
+}
+#center{
+    text-align: center;
+}
+
+#top{
+    margin-top: 3%;
+}
+#footer{
+    margin-top: 3%;
+    margin-bottom: 0%;
+    color: whitesmoke;
+}
+
+#left{
+    text-align: left;
+    margin-left: 10px;
+    padding-left: 0;
+}
+#right{
+    text-align: right;
+    margin-top: 5%;
+}

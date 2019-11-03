@@ -52,7 +52,7 @@ error_reporting(E_ALL & ~E_NOTICE);
 
 
 
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
@@ -69,48 +69,64 @@ error_reporting(E_ALL & ~E_NOTICE);
             <form action="" method="post" >
                 <div>
                     <h3 class="gap">CHANGE PASSWORD</h3>
-                    <hr class="gap">
+                    <hr class="gap">-->
+<div class="row">
+    <div class="col-xs-5 col-sm-3 col-md-2 col-lg-offset-1">
+        <h2 class="blue-backgnd">Change Password</h2>
+    </div>
+</div> <br>
 
-                    <div class="form-horizontal" id="horizontal">
-                        <div class="form-group">
-                            <label for="currpass" class="col-sm-3">Current Password</label>
-                            <div class="col-sm-9">
-                                <input type="password" name="currPass" class="form-control" id="currpass">
-                                <span id="cpassErr"></span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-horizontal" id="horizontal">
-                        <div class="form-group">
-                            <label for="newpass" class="col-sm-3">New Password</label >
-                            <div class="col-sm-9">
-                                <input type="password" name="newPass" id="newpass" class="form-control">
-                                <span id="npassErr"></span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-horizontal" id="horizontal">
-                        <div class="form-group">
-                            <label for="newPass2" class="col-sm-3">Retype New Password</label>
-                            <div class="col-sm-9">
-                                <input type="password" name="newPass2" id="newPass2" class="form-control">
-                                <span id="n2passErr"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <button type="submit" name="changePass" id="chPassBtn" class="btn btn-success">Change Password</button>
-                        <?php if($userType == "Patient"){ ?>
-                            <a href="patient.php" class="btn btn-primary" align="right">Go Home</a>
-                        <?php	}else if($userType == "Doctor"){ ?>
-                            <a href="doctor.php" class="btn btn-primary" align="right">Go Home</a>
-                        <?php	}else if($userType == "Admin"){ ?>
-                            <a href="admin.php" class="btn btn-primary" align="right">Go Home</a>
-                        <?php	}else{ echo "Can not Find The Home of User <br><br>"; } ?>
-                    </div>
+<div class="row">
+    <div class="col-xs-12 col-sm-8 col-lg-offset-1 col-xl-offset-1">
+        <div class="form-horizontal" id="horizontal">
+            <div class="form-group">
+                <label for="currpass" class="col-sm-3">Current Password</label>
+                <div class="col-sm-9">
+                    <input type="password" name="currPass" class="form-control" id="currpass">
+                    <span id="cpassErr"></span>
                 </div>
+            </div>
+        </div>
+
+        <div class="form-horizontal" id="horizontal">
+            <div class="form-group">
+                <label for="newpass" class="col-sm-3">New Password</label >
+                <div class="col-sm-9">
+                    <input type="password" name="newPass" id="newpass" class="form-control">
+                    <span id="npassErr"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-horizontal" id="horizontal">
+            <div class="form-group">
+                <label for="newPass2" class="col-sm-3">Retype New Password</label>
+                <div class="col-sm-9">
+                    <input type="password" name="newPass2" id="newPass2" class="form-control">
+                    <span id="n2passErr"></span>
+                </div>
+            </div>
+        </div>
+        <div>
+            <button type="submit" name="changePass" id="chPassBtn" class="btn btn-success"> <b>Change Password</b></button>
+
+            <?php if($userType == "Patient"){ ?>
+                <a href="router.php?" type="button" name="" id="" class="btn btn-warning">Back</a>
+                <a href="patient.php" class="btn btn-primary" align="right">Home</a>
+            <?php	}else if($userType == "Doctor"){ ?>
+                <a href="router.php?" type="button" name="" id="" class="btn btn-warning">Back</a>
+                <a href="doctor.php" class="btn btn-primary" align="right">Home</a>
+            <?php	}else if($userType == "Admin"){ ?>
+                <a href="router.php?f1=admin&f2=show" class="btn btn-warning">Back</a>
+                <a href="admin.php" class="btn btn-primary" align="right">Home</a>
+            <?php	}else{ echo "Can not Find The Home of User <br><br>"; } ?>
+        </div>
+    </div>
+</div>
+
+
+
+                <!--</div>
             </form>
         </div>
     </div>
@@ -118,4 +134,4 @@ error_reporting(E_ALL & ~E_NOTICE);
     <script src="vendors/js/jquery-3.3.1.js"></script>
     <script src="vendors/js/bootstrap.js"></script>
 </body>
-</html>
+</html>-->

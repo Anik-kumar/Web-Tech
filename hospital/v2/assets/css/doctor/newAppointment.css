@@ -1,0 +1,75 @@
+span{
+	color: red;
+}
+
+*{
+	box-sizing: border-box;
+	margin: 0;
+	padding:0;
+}
+
+@font-face {
+	font-family: "Unica";
+	src: url(../../fonts/UnicaOne-Regular.ttf);
+}
+
+html,body{
+	height: 100%;
+	font-family: 'lato-black','arial',sans-serif;
+}
+body{
+	background-color: #5e3448;
+	padding-top: 40px;
+	color: black;
+}
+
+h3{
+	width: 100%;
+	color: #2c3e50;
+	font-family: "Unica";
+	font-weight: bolder;
+	font-size: 30px;
+	text-transform: uppercase;
+}
+table{
+	color: black;
+}
+
+
+strong{
+	color: yellowgreen;
+	font-size: large;
+}
+
+div{
+	text-align: center;
+}
+
+/* Classes */
+
+.gap{
+	padding: 1.5%;
+	text-align: center;
+}
+
+
+
+/* Ids */
+
+#back{
+	background: rgba(240,240,220,0.5);
+	width: 100%;
+	padding: 2%;
+	margin: auto;
+	overflow: auto;
+}
+
+#header{
+	font-weight: bolder;
+	font-size: 15px;
+}
+
+#center{
+	text-align: center;
+	margin-top: 1%;
+}

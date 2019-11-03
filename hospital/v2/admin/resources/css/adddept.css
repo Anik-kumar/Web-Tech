@@ -66,6 +66,7 @@ hr{
     width: 70%;
     padding: 2%;
     margin: auto;
+    overflow-x: auto;
 }
 
 #center{

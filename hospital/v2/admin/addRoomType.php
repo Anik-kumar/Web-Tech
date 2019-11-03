@@ -10,14 +10,17 @@ error_reporting(E_ALL & ~E_NOTICE);
             $capacity = $_REQUEST['capacity'];
             // echo $depName . $description;
 
-            $conn = getConnection();
-            $query = "INSERT INTO room_type VALUES ('".$id."', '".$roomType."', '".$cost."', '".$capacity."')";
-            if(mysqli_query($conn, $query)){
-                echo "<script type='text/javascript'> alert('Room Type Added Successfully')</script>";
+            if(empty($roomType) || empty($cost) || empty($capacity)){
+                echo "<script type='text/javascript'> alert('Fill Up Form Please')</script>";
             }else{
-                echo "<script type='text/javascript'> alert('Room Type Already Exists. Try Different one')</script>";
+                $conn = getConnection();
+                $query = "INSERT INTO room_type VALUES ('".$id."', '".$roomType."', '".$cost."', '".$capacity."')";
+                if(mysqli_query($conn, $query)){
+                    echo "<script type='text/javascript'> alert('Room Type Added Successfully')</script>";
+                }else{
+                    echo "<script type='text/javascript'> alert('Room Type Already Exists. Try Different one')</script>";
+                }
             }
-
         }
     }else{
         header('location: ../login.php');

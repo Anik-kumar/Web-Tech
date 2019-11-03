@@ -10,19 +10,8 @@
 
 ?>
 
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
 
-    <title>Document</title>
-</head>
-<body>
-
-</body>
-</html>
-
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
@@ -36,37 +25,37 @@
 <body>
 
     <div class="container" id="center" id="top">
-        <div id="back">
-            <h1 class="gap">Rooms</h1>
-            <table class="table table-responsive">
-                <tr id="header">
-                    <td>Room Type</td>
-                    <td>Cost</td>
-                    <td>Location</td>
-                    <td>Capacity</td>
-                </tr>
+        <div id="back">-->
+<h1 class="gap">Rooms</h1>
+<table class="table table-responsive">
+    <tr id="header">
+        <td>Room Type</td>
+        <td>Cost</td>
+        <td>Location</td>
+        <td>Capacity</td>
+    </tr>
 
-                <?php while($row = mysqli_fetch_assoc($result)) { ?>
-                    <tr>
-                        <td><?php echo $row["type"]; ?></td>
-                        <td><?php echo $row["cost"];?></td>
-                        <td><?php echo $row["location"];?></td>
-                        <td><?php echo $row["max_capacity"];?></td>
-                    </tr>
-                <?php } ?>
-                <tr>
-                    <td colspan="4" align="right">
-                        <a href="admin.php" class="btn btn-danger">Home</a>
-                    </td>
-                </tr>
-            </table>
+    <?php while($row = mysqli_fetch_assoc($result)) { ?>
+        <tr>
+            <td><?php echo $row["type"]; ?></td>
+            <td><?php echo $row["cost"];?></td>
+            <td><?php echo $row["location"];?></td>
+            <td><?php echo $row["max_capacity"];?></td>
+        </tr>
+    <?php } ?>
+    <tr>
+        <td colspan="4" align="right">
+            <a href="admin.php" class="btn btn-danger">Home</a>
+        </td>
+    </tr>
+</table>
 
 
-        </div>
+       <!-- </div>
     </div>
 
 
     <script src="vendors/js/jquery-3.3.1.js"></script>
     <script src="vendors/js/bootstrap.js"></script>
 </body>
-</html>
+</html>-->

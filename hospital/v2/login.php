@@ -7,10 +7,10 @@
 
 		$email = mysqli_real_escape_string($conn, trim($_POST['userEmail']));
 		$pass = md5(trim($_POST['password']));
-        // $usertype = $_POST['usertype'];
+		$usertype = $_POST['usertype'];
 		$rememberMe = $_POST['rememberMe'];
 		echo $usertype;
-		$query;
+//		$query;
 
 		if (empty($email)==true || empty($pass)==true) {
             echo "<script type='text/javascript'> alert('Fill up User Id and Password')</script>";
@@ -54,16 +54,11 @@
                 }
 
 				if($row['user_type']=='Admin'){
-//				    echo $_SESSION['id'];
 					header('Location: admin/admin.php');
 				}else if($row['user_type']=='Doctor'){
 					header('Location: doctor/doctorHome.php');
 				}else if($row['user_type']=='Patient'){
 					header('Location: patient/patienthome.php');
-//                    $_SESSION['id2'] = $row['upatient_id'];
-//                    echo "<br> ".$row['upatient_id']." <br>";
-//                    echo "<br> ".$_SESSION['id2']." <br>";
-//                    print_r($row);
 				}
 				
 			}else{
@@ -81,10 +76,8 @@
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Login</title>
-    <link rel="stylesheet" type="text/css" href="admin/vendors/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="admin/resources/css/login.css" >
-
-	
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/admin/login.css" >
 </head>
 <body class="bgimage">
     <div class="container" id="center">

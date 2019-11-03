@@ -41,7 +41,7 @@ error_reporting(E_ALL & ~E_NOTICE);
                             $lastId = $row['patient_id'];
                             // echo $lastId;
                             // print_r($lastId . "------");
-                            $query4 = "INSERT INTO `all_users2` VALUES (0, '".$lastId."', NULL, '".$firstName."', '".$lastName."', '".$email."', '".md5($pass1)."', '".$userType."')";
+                            $query4 = "INSERT INTO `all_users` VALUES (0, '".$lastId."', NULL, '".$firstName."', '".$lastName."', '".$email."', '".md5($pass1)."', '".$userType."')";
 
                             if(!mysqli_query($conn, $query4)){
                                 echo "Error ". mysqli_errno($conn);

@@ -1,9 +1,9 @@
 <?php
-error_reporting(E_ALL & ~E_NOTICE);
+error_reporting(0);
 	require_once 'db.php';
 	session_start();
     if(isset($_SESSION['id'])){
-        if($_SESSION['usertype']=="Admin"){
+        if($_SESSION['usertype']=="Admin" || $_SESSION['usertype']=="Doctor"){
             $query = "SELECT AP.*, P.first_name, P.last_name, P.email, P.contact_no, E.first_name as emp_fName, E.last_name as emp_lName, D.dept_name, R.location, RT.type FROM patient_admitted AP LEFT JOIN patients P ON AP.patient_id=P.patient_id INNER JOIN employee E ON AP.emp_id=E.emp_id INNER JOIN department D ON AP.dep_id=D.dept_id INNER JOIN room R ON AP.room_id=R.room_id INNER JOIN room_type RT ON R.type_id=RT.type_id";
             $result = getResults($query);
         }

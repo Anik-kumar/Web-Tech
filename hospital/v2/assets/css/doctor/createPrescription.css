@@ -1,0 +1,76 @@
+*{
+	box-sizing: border-box;
+	margin: 0;
+	padding:0;
+}
+
+@font-face {
+	font-family: "Unica";
+	src: url(../../fonts/UnicaOne-Regular.ttf);
+}
+
+html,body{
+	height: 100%;
+	font-family: 'lato-black','arial',sans-serif;
+}
+
+body{
+	background-color: #5e3448;
+	padding-top: 20px;
+	color: black;
+}
+
+h3{
+	width: 100%;
+	color: #2c3e50;
+	font-family: "Unica";
+	font-weight: bolder;
+	font-size: 30px;
+	text-transform: uppercase;
+}
+table{
+	color: black;
+}
+
+
+form{
+	padding-left: 0;
+	padding-right: 0;
+	margin: 0;
+}
+
+
+/* Classes */
+
+.gap{
+	padding: 1.5%;
+}
+
+.form-control[readonly]{
+	background: rgba(240,240,240,0.0);
+	border-color: rgba(240,240,240,0.0);
+}
+
+/* Ids */
+#did{
+	color: black;
+}
+
+#back{
+	background: rgba(240,240,240,0.5);
+	width: 100%;
+	/*height: 600px;*/
+	padding: 2%;
+	margin: auto;
+	overflow: auto;
+}
+
+#header{
+	font-weight: bolder;
+	font-size: 15px;
+}
+
+#center{
+	/*text-align: center;*/
+	margin-top: 1%;
+}

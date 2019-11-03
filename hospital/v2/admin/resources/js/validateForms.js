@@ -372,7 +372,7 @@ $(document).ready(function () {
     });
 
     $("#upEmail").blur(function () {
-        let email = $('#upEmail').val();
+        let  email = $('#upEmail').val();
         let emailErr = $('#emailErr');
 
         validateEmail(email, emailErr);

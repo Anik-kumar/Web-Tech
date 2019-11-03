@@ -1,105 +1,98 @@
 <?php
+	error_reporting(0);
 	session_start();
 	include('db.php');
-	$userid = $_SESSION['id'];
-	$conn = getConnection();
 
-	if(isset($_REQUEST['submit'])){
-	    $searchStr = $_REQUEST['searchtext'];
-        $query = "SELECT * FROM prescription pr inner join patients p on pr.pat_id=p.patient_id inner join employee e on pr.doc_id=e.emp_id WHERE pat_id LIKE '".$searchStr."' OR first_name LIKE '".$searchStr."' OR last_name LIKE '".$searchStr."' OR email LIKE '".$searchStr."' " ;
-        $result2= mysqli_query($conn, $query);
-        $row = mysqli_fetch_assoc($result2);
-    }
+	$prescri_id = $_REQUEST['id'];
+    $sql = "select pr.*, p.first_name, p.last_name, p.age, p.email, p.gender, p.contact_no, e.email as emp_email, e.first_name as emp_fName,e.last_name as emp_lName, e.contact_no as emp_contact from prescription pr inner join patients p on pr.pat_id=p.patient_id inner join employee e on pr.doc_id=e.emp_id WHERE prescrip_id='".$prescri_id."'";
+    $conn = getConnection();
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($result);
+
+    $age = $row['age'];
+    $disease = $row['disease'];
+    $medicine = $row['medicine'];
+    $test = $row['tests'];
+    $comment = $row['comment'];
+
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-
-	<title>Update Prescription</title>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>View Prescription</title>
+    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/doctor/viewPrescription.css">
 </head>
 <body>
-    <form action="" method="post">
-        <input type="text" name="searchtext">
-        <input type="submit" name="submit">
-    </form>
 
-	<form method="post"  action="php/updatePresCheck.php">
-	<div >
-	<input type="text" name="patient" placeholder="PatientID To Search">
-	<input type="submit" name="search" value="Search">
-	</div>
-	</br>
-	<fieldset>
-		<legend> Update Prescription</legend>
+    <div class="container" id="center">
+        <div id="back">
+            <div class="col-md-11">
+                <h4>Apollo Hospital Ltd</h4>
+                <p>Email: apollo@email.com</p>
+                <p>Contact: 014653212546</p>
+                <hr>
+            </div>
+            <div class="alignLeft col-md-11">
+                <p>Doctor ID: <?= $row['doc_id']; ?></p>
+            </div>
+            <div class="alignLeft col-lg-12">
+                <label>Name: <?= $row['emp_fName']." ".$row['emp_fName']; ?> </label>
+            </div>
+            <div class="alignLeft col-lg-12">
+                <p>Email: <?= $row['emp_email'] ?> </p>
+            </div>
+            <div class="alignLeft col-lg-12">
+                <p>Date: <?= $row['prescrip_date']; ?> </p>
+            </div>
+            <div class="alignLeft col-lg-12">
+                <p>Contact: <?= $row['emp_contact']; ?> </p>
+                <hr>
+            </div>
+            <div class="alignLeft col-lg-12">
+                <p>Patient ID: <?= $row['pat_id']; ?> </p>
+            </div>
+            <div class="alignLeft col-lg-12">
+                <label>Patient Name: <?= $row['first_name']." ".$row['last_name']; ?> </label>
+            </div>
+            <div class="alignLeft col-lg-12">
+                <p>Patient Email: <?= $row['email']; ?> </p>
+            </div>
+            <div class="alignLeft col-lg-12">
+                <p>Patient Age: <?= $row['age']; ?> </p>
+            </div>
+            <div class="alignLeft col-lg-12">
+                <p>Patient Gender: <?= $row['gender']; ?> </p>
+            </div>
+            <div class="alignLeft col-lg-12">
+                <p>Patient Contact: <?= $row['contact_no']; ?> </p>
+            </div>
+            <div class="alignLeft col-lg-12">
+                <label>Disease:</label> <?= $row['disease']; ?>
+            </div>
+            <div class="alignLeft col-lg-12">
+                <label>Tests:</label> <?= $row['tests']; ?>
+            </div>
+            <div class="alignLeft col-lg-12">
+                <label>Medicine:</label> <?= $row['medicine']; ?>
+            </div>
+            <div class="alignLeft col-lg-12">
+                <label>Comment:</label> <?= $row['comment']; ?>
+            </div>
+            <div>
+                <a href="createPrescription.php" class="btn btn-success">Create Prescription</a>
+                <a href="updatePrescription.php?id=<?=$row['prescrip_id']?>" class="btn btn-primary">Update Prescription</a>
+                <a href="showAllPrescription.php" class="btn btn-warning">BACK</a>
+                <a href="doctorHome.php" class="btn btn-danger">HOME</a>
+            </div>
+        </div>
+    </div>
 
-	<table border="0">
-		<tr>
-			<td>Patient ID</td>
-			<td>
-				<input type="text" name="pid" value="<?= $row['patient_id'] ?>">
-			</td>
-		</tr>
-	
-		
-		<tr>
-			<td>Doctors Contact</td>
-			<td>
-				<input type="" name="dcontact" value="<?php echo $row['contact_no']; ?>">
-			</td>
-		</tr>
-		<tr>
-			<td>Date</td>
-			<td><input type="date" name="date" value="<?php echo $row['prescrip_date']; ?>"></td>
-		</tr>
-		<tr>
-			<td colspan="2"><hr></td>
-		</tr>
-		
-		<tr>
-			<td>Patient Age</td>
-			<td>
-				<input type="text" name="page" value="<?php echo $row['age']; ?>">
-			</td>
-		</tr>
-		<tr>
-			<td>Disease</td>
-			<td>
-				<input type="text" name="disease" value="<?php echo $row['disease']; ?>">
-			</td>
-		</tr>
-		<tr>
-			<td>Medicine</td>
-			<td>
-				<input type="text" name="medicine" value="<?php echo $row['medicine']; ?>">
-			</td>
-		</tr>
-		<tr>
-			<td>Tests</td>
-			<td >
-				<input type="text" name="test" value="<?php echo $row['tests']; ?>">
-			</td>
-		</tr>
-		<tr>
-			<td>Comment:</td>
-			<td >
-				<textarea  name="comment" cols="23" rows="3" value="<?php echo $row['comment']; ?>"></textarea>
-			</td>
-		</tr>
-				
-		<tr>
-			<td align="left">
-				<input type="submit" name="submit" value="update">
-			</td>
-		
-			<td align="right">
-				<a href="doctorHome.php">Go Home</a>
-			</td>
-		</tr>
-		
-	</table>
-	</fieldset>
-	</form>
 	
 </body>
 </html>

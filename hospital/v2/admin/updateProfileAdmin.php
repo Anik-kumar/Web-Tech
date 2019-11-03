@@ -26,18 +26,23 @@ error_reporting(E_ALL & ~E_NOTICE);
 		$upDeptId = $_REQUEST['department'];
 		$upSalary = $_REQUEST['upSalary'];
 		// echo $email;
-		
-		$upQuery = "UPDATE employee SET first_name='".$upFirstName."', last_name='".$upLastName."', email='".$upEmail."', contact_no='".$upContact."', dep_id=".$upDeptId.", salary=".$upSalary." WHERE emp_id='".$id."' AND email='".$email."'";
-		$query2 = "UPDATE all_users2 SET user_first_name='".$upFirstName."', user_last_name='".$upLastName."', user_email='".$upEmail."' WHERE uemp_id='".$id."'";
+        if(empty($upFirstName) || empty($upLastName) || empty($upEmail) || empty($upContact) || empty($upDeptId) || empty($upSalary) ){
+            echo "<script type='text/javascript'> alert('Fill Up Form First')</script>";
+        }else{
+            $upQuery = "UPDATE employee SET first_name='".$upFirstName."', last_name='".$upLastName."', email='".$upEmail."', contact_no='".$upContact."', dep_id=".$upDeptId.", salary=".$upSalary." WHERE emp_id='".$id."' AND email='".$email."'";
+            $query2 = "UPDATE all_users2 SET user_first_name='".$upFirstName."', user_last_name='".$upLastName."', user_email='".$upEmail."' WHERE uemp_id='".$id."'";
 
-		if(mysqli_query($conn, $upQuery) && mysqli_query($conn, $query2)){
-            echo "<script type='text/javascript'> alert('User Profile Updated')</script>";
-            header("Location: updateProfileAdmin.php");
-		}else{
+            if(mysqli_query($conn, $upQuery) && mysqli_query($conn, $query2)){
+                echo "<script type='text/javascript'> alert('User Profile Updated')</script>";
+                header("Location: updateProfileAdmin.php");
+            }else{
 //			echo "error ". mysqli_errno($conn) . "-*-" . mysqli_error($conn);
-            echo "<script type='text/javascript'> alert('SQL Error')</script>";
-            header("Location: updateProfileAdmin.php");
-		}
+                echo "<script type='text/javascript'> alert('SQL Error')</script>";
+                header("Location: updateProfileAdmin.php");
+            }
+        }
+		
+
 	}
 
  ?>

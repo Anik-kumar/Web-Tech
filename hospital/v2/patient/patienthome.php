@@ -26,7 +26,7 @@
     <div class="container">
         <form>
             <fieldset>
-                <legend>Home Page</legend>
+                <legend>Patient Home Page</legend>
                 <table cellpadding="5">
                     <tr>
                         <td>
